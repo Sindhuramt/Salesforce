@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - XPay Life Bank</title>
+</head>
+<body style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+    <table border="1" cellpadding="200" cellspacing="0" align="center">
+        <tr>
+            <td>
+                <center>
+                    <div id="container">
+                        <div id="header">
+                            <h1>XPay Life Bank</h1>
+                        </div>
+                        <div id="welcome">
+                            <h2>Welcome</h2>
+                        </div>
+                        <form class="login-form" asp-action="Login" method="post">
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label for="Email">UserName:</label>
+                                <input type="email" id="Email" name="Email" />
+                            </div>
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label for="Password" style="margin-left: 10px;">Password:</label>
+                                <input type="password" id="Password" name="Password" />
+                            </div>
+                            <div class="form-group">
+                                <button type="submit">Login</button>
+                                <button asp-action="Register" formmethod="get">Register</button>
+                                <button asp-action="ForgotPassword">Forgot Password?</button>
+                            </div>
+                        </form>
+                    </div>
+                </center>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Hide navbar
+        var navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.style.display = 'none';
+        }
+
+        // Hide footer
+        var footer = document.querySelector('.footer');
+        if (footer) {
+            footer.style.display = 'none';
+        }
+    });
+</script>

@@ -1,0 +1,57 @@
+﻿<!-- Views/TicketDashboard/Index.cshtml -->
+@model Dictionary<string, int>
+
+<div class="row">
+    <!-- Vertical Bar Chart -->
+    <div class="col-md-6">
+        <canvas id="ticketStatusVerticalChart"></canvas>
+    </div>
+    <!-- Horizontal Bar Chart -->
+    <div class="col-md-6">
+        <h2>Ticket Dashboard</h2>
+        <div class="row">
+            @foreach (var statusCount in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@statusCount.Key</h5>
+                            <p class="card-text">@statusCount.Value</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Get data from model and format for Chart.js
+        var chartDataVertical = {
+            labels: @Html.Raw(Json.Serialize(Model.Keys)),
+            datasets: [{
+                label: 'Ticket Status Counts',
+                data: @Html.Raw(Json.Serialize(Model.Values)),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Create vertical bar chart
+        var ctxVertical = document.getElementById('ticketStatusVerticalChart').getContext('2d');
+        var myChartVertical = new Chart(ctxVertical, {
+            type: 'bar',
+            data: chartDataVertical,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+}

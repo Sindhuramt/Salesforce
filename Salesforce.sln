@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesForceApp", "SalesForceApp\SalesForceApp.csproj", "{6F37DBA8-E1FA-40D6-A69F-E613F7C988FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{9E048088-30C4-4A47-90F6-CAF5521F0FE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F37DBA8-E1FA-40D6-A69F-E613F7C988FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F37DBA8-E1FA-40D6-A69F-E613F7C988FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F37DBA8-E1FA-40D6-A69F-E613F7C988FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F37DBA8-E1FA-40D6-A69F-E613F7C988FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E048088-30C4-4A47-90F6-CAF5521F0FE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E048088-30C4-4A47-90F6-CAF5521F0FE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E048088-30C4-4A47-90F6-CAF5521F0FE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E048088-30C4-4A47-90F6-CAF5521F0FE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9296BC45-31BC-49C0-9B8E-713B31DB9648}
+	EndGlobalSection
+EndGlobal

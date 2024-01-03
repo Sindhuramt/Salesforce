@@ -1,0 +1,62 @@
+﻿<!-- Views/TicketHistory/Index.cshtml -->
+@model List<Library.Entity.TicketMaster>
+
+@{
+    ViewData["Title"] = "Ticket History";
+}
+
+<h1>Ticket History</h1>
+
+@foreach (var status in ViewBag.Statuses)
+{
+    <button onclick="filterByStatus('@status.Code')">@status.Name</button>
+}
+
+<!-- Add a hidden input field to store the status filter value -->
+<input type="hidden" id="statusFilter" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ticket No</th>
+            <th>Status</th>
+            <th>Problem</th>
+            <th>Resolution</th>
+            <th>Assigned To</th>
+            <th>Created On</th>
+            <th>Resolved On</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            <tr>
+                <td>@ticket.Id</td>
+                <td>@ticket.StatusCode</td>
+                <td>@ticket.Problem</td>
+                <td>@ticket.Resolution</td>
+                <td>@ticket.Name</td>
+                <td>@ticket.CreatedOn.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>@(ticket.ResolvedOn.HasValue ? ticket.ResolvedOn.Value.ToString("yyyy-MM-dd HH:mm:ss") : "")</td>
+                <td>
+                    <a asp-action="ViewTicket" asp-route-ticketId="@ticket.Id">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts {
+    <script>
+        function filterByStatus(statusCode) {
+            // Set the value of the hidden input field
+            var statusFilter = document.getElementById("statusFilter");
+            if (statusFilter) {
+                statusFilter.value = statusCode;
+                // Redirect to the filtered URL
+                window.location.href = '/Ticket/TicketHistory?statusCode=' + statusCode;
+            }
+        }
+    </script>
+}
